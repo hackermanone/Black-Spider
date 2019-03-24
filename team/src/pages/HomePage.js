@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { addPercentage } from '../redux/actions/profileActions';
 import NavBar from '../components/NavBar';
 
-const ADD_USERS_URL = "http://localhost:8080/profile/adduser";
+// const ADD_USERS_URL = "http://localhost:8080/profile/adduser";
 
 class HomePage extends React.Component {
 
@@ -124,28 +124,28 @@ class HomePage extends React.Component {
     //     this.props.dispatch(addPercentage(25,this.props.percentage));
     // }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
-        let body = {};
-        const data = new FormData(event.target);
+//     handleSubmit = (event) => {
+//         event.preventDefault();
+//         let body = {};
+//         const data = new FormData(event.target);
 
-        for (let key of data.keys()) {
-            // compute property name for body object
-            body[key] = data.get(key);
-        }
+//         for (let key of data.keys()) {
+//             // compute property name for body object
+//             body[key] = data.get(key);
+//         }
 
-        axios.post('http://localhost:8080/profile/adduser', body)
-        .then((response)=>{console.log("response form server", response)})
-        .catch((err)=>{
-            this.setState({error: { show: true, message: "Something went wrong! oh no"}})
-        })
+//         axios.post('http://localhost:8080/profile/adduser', body)
+//         .then((response)=>{console.log("response form server", response)})
+//         .catch((err)=>{
+//             this.setState({error: { show: true, message: "Something went wrong! oh no"}})
+//         })
 
-        axios.post('http://localhost:8080/profile/sendmail', body)
-        .then((response) => {console.log("sent email")})
-        .catch((err) => {
-            this.setState({error: {show: true, message: "Failed sending you an email"}})
-        })
-    }
+//         axios.post('http://localhost:8080/profile/sendmail', body)
+//         .then((response) => {console.log("sent email")})
+//         .catch((err) => {
+//             this.setState({error: {show: true, message: "Failed sending you an email"}})
+//         })
+//     }
 }
 
 function mapStateToProps(state) {
